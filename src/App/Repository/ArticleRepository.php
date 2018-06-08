@@ -36,7 +36,7 @@ class ArticleRepository
         foreach (array_keys($data) as $key) {
             $fields[] = sprintf('%s=:%s', $key, $key);
         }
-var_dump($id, $data);die;
+
         $stmt = $this->dbh->prepare('UPDATE articles SET '.implode(',', $fields).' WHERE id = :id');
         $stmt->execute($data + ['id' => $id]);
 
